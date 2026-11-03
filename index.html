@@ -12,38 +12,80 @@
 
 <body>
 
-    <header>
-        <h1>☄️ ASTRA</h1>
+    <!-- MENU PRINCIPAL -->
+    <nav class="navbar" aria-label="Navegação principal">
+
+        <a href="#inicio" class="navbar-logo">
+            ASTRA
+        </a>
+
+        <div class="navbar-links">
+            <a href="#inicio">Início</a>
+            <a href="#asteroides">Asteroides</a>
+            <a href="#galeria">Galeria</a>
+            <a href="#curiosidades" id="link-curiosidades">
+                Curiosidades
+            </a>
+        </div>
+
+        <!-- SELETOR DE IDIOMA -->
+        <div class="idioma-seletor" role="group" aria-label="Idioma / Language">
+
+            <button type="button" class="idioma-botao ativo" data-idioma="pt" aria-pressed="true">
+                PT
+            </button>
+
+            <button type="button" class="idioma-botao" data-idioma="en" aria-pressed="false">
+                EN
+            </button>
+
+        </div>
+
+    </nav>
+
+    <!-- INÍCIO -->
+    <header id="inicio">
+
+        <h1>ASTRA</h1>
+
         <p>
             Explore asteroides próximos da Terra
             com dados da NASA.
         </p>
+
     </header>
 
     <main>
 
-        <!-- MONITORAMENTO DE ASTEROIDES -->
-        <section id="dashboard">
-            <h2>Asteroides próximos da Terra</h2>
+        <!-- RASTREADOR -->
+        <section id="asteroides">
 
-            <p>
-                Descubra quais asteroides estão
-                passando pela nossa vizinhança espacial.
-            </p>
+            <div id="dashboard">
 
-            <button id="buscar-asteroides">
-                Explorar asteroides
-            </button>
-        </section>
+                <h2>Asteroides próximos da Terra</h2>
 
-        <!-- RESULTADOS DA NASA -->
-        <section id="resultados" aria-live="polite">
+                <p>
+                    Descubra quais asteroides estão
+                    passando pela nossa vizinhança espacial.
+                </p>
+
+                <button id="buscar-asteroides" type="button">
+                    Explorar asteroides
+                </button>
+
+            </div>
+
+            <!-- RESULTADOS DA NASA -->
+            <section id="resultados" aria-live="polite">
+            </section>
+
         </section>
 
         <!-- GALERIA ESPACIAL -->
         <section id="galeria">
 
             <div class="galeria-cabecalho">
+
                 <span class="galeria-etiqueta">
                     ASTRA / VISUAL ARCHIVE
                 </span>
@@ -54,20 +96,23 @@
                     Uma coleção de fotografias do cosmos,
                     diretamente da biblioteca da NASA.
                 </p>
+
             </div>
 
             <div class="galeria-filtros">
-                <button class="galeria-filtro ativo" data-tema="galaxy" aria-pressed="true">
+
+                <button type="button" class="galeria-filtro ativo" data-tema="galaxy" aria-pressed="true">
                     Galáxias
                 </button>
 
-                <button class="galeria-filtro" data-tema="nebula" aria-pressed="false">
+                <button type="button" class="galeria-filtro" data-tema="nebula" aria-pressed="false">
                     Nebulosas
                 </button>
 
-                <button class="galeria-filtro" data-tema="asteroid" aria-pressed="false">
+                <button type="button" class="galeria-filtro" data-tema="asteroid" aria-pressed="false">
                     Asteroides
                 </button>
+
             </div>
 
             <div id="galeria-resultados" aria-live="polite">
@@ -75,16 +120,61 @@
 
         </section>
 
+        <!-- CURIOSIDADES CÓSMICAS -->
+        <section id="curiosidades">
+
+            <div class="curiosidades-cabecalho">
+                <span class="curiosidades-etiqueta">
+                    ASTRA / COSMIC KNOWLEDGE
+                </span>
+
+                <h2 id="curiosidades-titulo">
+                    Curiosidades cósmicas
+                </h2>
+
+                <p id="curiosidades-subtitulo">
+                    Descubra os segredos do universo,
+                    uma curiosidade de cada vez.
+                </p>
+            </div>
+
+            <div class="curiosidades-acoes">
+                <button id="curiosidade-aleatoria" type="button">
+                    ✦ Me surpreenda!
+                </button>
+            </div>
+
+            <div id="curiosidades-grid" class="curiosidades-grid">
+            </div>
+
+        </section>
+
     </main>
 
+    <!-- CRÉDITOS -->
     <footer>
-        <p>
-            ASTRA © 2026 | Dados fornecidos pela NASA
+
+        <p class="footer-credito">
+            Desenvolvido por
+            <a href="https://github.com/brureads" target="_blank" rel="noopener noreferrer">
+                Bruna Martins Moura
+            </a>
         </p>
+
+        <p class="footer-nasa">
+            © 2026 ASTRA | Dados fornecidos pela NASA
+        </p>
+
     </footer>
+
+    <!-- JAVASCRIPT -->
 
     <script src="script.js"></script>
     <script src="galeria.js"></script>
+    <script src="idioma.js"></script>
+    <script src="traducao-galeria.js"></script>
+    <script src="curiosidades.js"></script>
+
 
 </body>
 

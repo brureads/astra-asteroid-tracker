@@ -1107,3 +1107,619 @@ header h1 {
         transform: none;
     }
 }
+
+/* =====================================
+   ASTRA — NAVIGATION BAR
+   Missão 09
+===================================== */
+
+/* Barra principal */
+.navbar {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+
+    width: 100%;
+    min-height: 75px;
+    padding: 18px max(5%, calc((100vw - 1200px) / 2));
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+
+    background: rgba(4, 3, 9, 0.94);
+
+    border-bottom: 1px solid rgba(192, 169, 236, 0.15);
+
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+}
+
+/* Logo pequeno */
+.navbar-logo {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 21px;
+    font-weight: 700;
+    letter-spacing: 4px;
+
+    color: #ffffff;
+    text-decoration: none;
+    white-space: nowrap;
+
+    transition: color 0.3s ease;
+}
+
+.navbar-logo:hover {
+    color: #c0a9ec;
+}
+
+/* Links */
+.navbar-links {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+.navbar-links a {
+    position: relative;
+
+    color: #bbb3c9;
+    text-decoration: none;
+
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 1px;
+
+    transition: color 0.3s ease;
+}
+
+/* Linha roxa ao passar o mouse */
+.navbar-links a::after {
+    content: "";
+
+    position: absolute;
+    left: 0;
+    bottom: -8px;
+
+    width: 0;
+    height: 1px;
+
+    background: #c0a9ec;
+    transition: width 0.3s ease;
+}
+
+.navbar-links a:hover {
+    color: #ffffff;
+}
+
+.navbar-links a:hover::after {
+    width: 100%;
+}
+
+/* Foco para navegação pelo teclado */
+.navbar a:focus-visible {
+    outline: 2px solid #c0a9ec;
+    outline-offset: 6px;
+}
+
+/* Rolagem suave */
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 100px;
+}
+
+/* Ajuste das seções */
+#inicio,
+#asteroides,
+#galeria {
+    scroll-margin-top: 100px;
+}
+
+/* Layout para celulares */
+@media (max-width: 600px) {
+
+    .navbar {
+        min-height: 65px;
+        padding: 16px 20px;
+    }
+
+    .navbar-logo {
+        font-size: 16px;
+        letter-spacing: 2px;
+    }
+
+    .navbar-links {
+        gap: 12px;
+    }
+
+    .navbar-links a {
+        font-size: 10px;
+        letter-spacing: 0;
+    }
+
+    .navbar-links a::after {
+        bottom: -5px;
+    }
+
+}
+
+/* Telas muito pequenas */
+@media (max-width: 380px) {
+
+    .navbar {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .navbar-links {
+        justify-content: center;
+        width: 100%;
+    }
+
+}
+
+/* Acessibilidade */
+@media (prefers-reduced-motion: reduce) {
+
+    html {
+        scroll-behavior: auto;
+    }
+
+    .navbar-logo,
+    .navbar-links a,
+    .navbar-links a::after {
+        transition: none;
+    }
+
+}
+
+/* =====================================
+   ASTRA — LANGUAGE SELECTOR
+===================================== */
+
+.idioma-seletor {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+
+    padding: 4px;
+
+    border: 1px solid rgba(192, 169, 236, 0.3);
+    border-radius: 4px;
+
+    background: rgba(14, 9, 24, 0.7);
+}
+
+.idioma-botao {
+    padding: 8px 12px;
+
+    background: transparent;
+    color: #a9a1b8;
+
+    border: none;
+    border-radius: 3px;
+
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    font-weight: 500;
+
+    cursor: pointer;
+    transition: 0.25s ease;
+}
+
+.idioma-botao:hover {
+    color: #ffffff;
+}
+
+.idioma-botao.ativo {
+    background: #c0a9ec;
+    color: #090511;
+}
+
+.idioma-botao:focus-visible {
+    outline: 2px solid #ffffff;
+    outline-offset: 3px;
+}
+
+/* Alinhamento da navbar */
+.navbar {
+    gap: 24px;
+}
+
+.navbar-links {
+    margin-left: auto;
+}
+
+/* Celulares */
+@media (max-width: 600px) {
+    .navbar {
+        flex-wrap: wrap;
+    }
+
+    .navbar-links {
+        gap: 12px;
+    }
+
+    .idioma-seletor {
+        margin-left: auto;
+    }
+
+    .idioma-botao {
+        padding: 7px 9px;
+        font-size: 10px;
+    }
+}
+
+/* Tradução da identificação científica */
+html[lang="pt-BR"] #dashboard::before {
+    content: "ASTRA / OBSERVATÓRIO ESPACIAL";
+}
+
+html[lang="en"] #dashboard::before {
+    content: "ASTRA / DEEP SPACE OBSERVATION";
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .idioma-botao {
+        transition: none;
+    }
+}
+
+/* =====================================
+   ASTRA — CORREÇÃO DA NAVBAR
+===================================== */
+
+.navbar {
+    position: sticky;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    min-height: 75px;
+    margin: 0;
+
+    background: rgba(4, 3, 9, 0.96);
+}
+
+header#inicio {
+    padding-top: 100px;
+}
+
+.navbar-links {
+    margin-left: auto;
+}
+
+.idioma-seletor {
+    flex-shrink: 0;
+}
+
+/* =====================================
+   ASTRA — SELETOR DE IDIOMA CORRIGIDO
+===================================== */
+
+.navbar {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+
+    display: flex;
+    align-items: center;
+    gap: 24px;
+
+    background: rgba(4, 3, 9, 0.96);
+}
+
+.navbar-links {
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+}
+
+.idioma-seletor {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+    gap: 4px;
+
+    padding: 4px;
+    border: 1px solid rgba(192, 169, 236, 0.3);
+    border-radius: 4px;
+
+    background: rgba(14, 9, 24, 0.7);
+}
+
+.idioma-botao {
+    padding: 8px 12px;
+
+    border: none;
+    border-radius: 3px;
+
+    background: transparent;
+    color: #aaa3b8;
+
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+
+    cursor: pointer;
+}
+
+.idioma-botao.ativo {
+    background: #c0a9ec;
+    color: #090511;
+}
+
+.idioma-botao:hover:not(.ativo) {
+    color: #ffffff;
+}
+
+.idioma-botao:focus-visible {
+    outline: 2px solid #ffffff;
+    outline-offset: 3px;
+}
+
+/* Textos científicos conforme o idioma */
+
+html[lang="pt-BR"] #dashboard::before {
+    content: "ASTRA / OBSERVATÓRIO ESPACIAL";
+}
+
+html[lang="en"] #dashboard::before {
+    content: "ASTRA / DEEP SPACE OBSERVATION";
+}
+
+html[lang="pt-BR"] .galeria-etiqueta {
+    font-size: 0;
+}
+
+html[lang="pt-BR"] .galeria-etiqueta::after {
+    content: "ASTRA / ACERVO ESPACIAL";
+    font-size: 10px;
+}
+
+html[lang="en"] .galeria-etiqueta {
+    font-size: 10px;
+}
+
+/* Manter o título branco */
+
+header h1 {
+    color: #ffffff;
+}
+
+/* Celulares */
+
+@media (max-width: 600px) {
+    .navbar {
+        flex-wrap: wrap;
+        gap: 12px;
+    }
+
+    .navbar-links {
+        gap: 12px;
+    }
+
+    .idioma-seletor {
+        margin-left: auto;
+    }
+}
+
+/* =====================================
+   ASTRA — CURIOSIDADES CÓSMICAS
+   Missão 11
+===================================== */
+
+#curiosidades {
+    margin-top: 110px;
+    padding-top: 60px;
+
+    border-top: 1px solid var(--border);
+    scroll-margin-top: 110px;
+}
+
+.curiosidades-cabecalho {
+    margin-bottom: 30px;
+}
+
+.curiosidades-etiqueta {
+    color: #c0a9ec;
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 3px;
+}
+
+.curiosidades-cabecalho h2 {
+    margin-top: 18px;
+
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: clamp(30px, 5vw, 48px);
+    font-weight: 500;
+    color: #ffffff;
+}
+
+.curiosidades-cabecalho p {
+    margin-top: 15px;
+    color: #aaa3b8;
+    font-size: 14px;
+    line-height: 1.8;
+}
+
+/* Botão de sorteio */
+
+.curiosidades-acoes {
+    margin-bottom: 30px;
+}
+
+#curiosidade-aleatoria {
+    padding: 15px 24px;
+
+    background: rgba(192, 169, 236, 0.08);
+    color: #fff5d6;
+
+    border: 1px solid #c0a9ec;
+    border-radius: 3px;
+
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 1px;
+
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+#curiosidade-aleatoria:hover {
+    background: #c0a9ec;
+    color: #07040e;
+}
+
+/* Grade de curiosidades */
+
+.curiosidades-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 20px;
+}
+
+/* Cartão */
+
+.curiosidade-card {
+    min-width: 0;
+    padding: 28px;
+
+    background: rgba(10, 7, 19, 0.88);
+    border: 1px solid rgba(192, 169, 236, 0.22);
+    border-radius: 5px;
+
+    transition: border-color 0.3s ease,
+                transform 0.3s ease;
+}
+
+.curiosidade-card:hover {
+    border-color: rgba(192, 169, 236, 0.6);
+    transform: translateY(-4px);
+}
+
+/* Símbolo */
+
+.curiosidade-icone {
+    display: block;
+    margin-bottom: 28px;
+
+    font-size: 30px;
+    color: #c0a9ec;
+}
+
+/* Categoria */
+
+.curiosidade-categoria {
+    display: block;
+
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 2px;
+    color: #c0a9ec;
+
+    margin-bottom: 15px;
+}
+
+/* Título */
+
+.curiosidade-card h3 {
+    min-height: 65px;
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 1.5;
+    color: #fff5d6;
+}
+
+/* Explicação expansível */
+
+.curiosidade-detalhes {
+    margin-top: 25px;
+    border-top: 1px solid rgba(192, 169, 236, 0.15);
+    padding-top: 20px;
+}
+
+.curiosidade-detalhes summary {
+    color: #c0a9ec;
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    line-height: 1.6;
+
+    cursor: pointer;
+    list-style: none;
+}
+
+.curiosidade-detalhes summary::-webkit-details-marker {
+    display: none;
+}
+
+.curiosidade-detalhes summary:focus-visible {
+    outline: 2px solid #fff5d6;
+    outline-offset: 5px;
+}
+
+.curiosidade-descricao {
+    margin-top: 20px;
+
+    color: #c9c1d3;
+    font-size: 13px;
+    line-height: 1.9;
+}
+
+.curiosidade-fonte {
+    display: inline-block;
+    margin-top: 20px;
+
+    color: #c0a9ec;
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    text-decoration: none;
+}
+
+.curiosidade-fonte:hover {
+    text-decoration: underline;
+}
+
+/* Tablets */
+
+@media (max-width: 950px) {
+    .curiosidades-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+/* Celulares */
+
+@media (max-width: 650px) {
+    #curiosidades {
+        margin-top: 70px;
+    }
+
+    .curiosidades-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .curiosidade-card h3 {
+        min-height: auto;
+    }
+}
+
+/* Movimento reduzido */
+
+@media (prefers-reduced-motion: reduce) {
+    .curiosidade-card,
+    #curiosidade-aleatoria {
+        transition: none;
+    }
+
+    .curiosidade-card:hover {
+        transform: none;
+    }
+}
