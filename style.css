@@ -1,0 +1,899 @@
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+
+/* =====================================
+   ASTRA — ASTEROID TRACKER
+   Tema: Star Wars / Deep Space
+===================================== */
+
+/* FONTE STAR WARS */
+
+@font-face {
+    font-family: 'Star Jedi';
+    src: url('./fonts/Starjedi.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* CORES */
+
+:root {
+    --background: #010103;
+    --text: #f5f3fa;
+    --muted: #aaa3b8;
+    --accent: #c0a9ec;
+    --border: rgba(183, 160, 220, 0.18);
+}
+
+/* RESET */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+/* FUNDO ESPACIAL */
+
+body {
+    min-height: 100vh;
+    overflow-x: hidden;
+
+    font-family: 'Space Grotesk', sans-serif;
+    color: var(--text);
+
+    background-color: var(--background);
+
+    background-image:
+        radial-gradient(
+            ellipse at 75% 65%,
+            rgba(65, 28, 90, 0.20) 0%,
+            transparent 55%
+        ),
+        radial-gradient(
+            ellipse at 10% 15%,
+            rgba(37, 20, 67, 0.12) 0%,
+            transparent 45%
+        ),
+        linear-gradient(
+            145deg,
+            #010103 0%,
+            #05030b 55%,
+            #090413 100%
+        );
+
+    background-attachment: fixed;
+}
+
+/* ESTRELAS */
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+
+    background-image:
+        radial-gradient(1px 1px at 10% 15%, #fff, transparent),
+        radial-gradient(1px 1px at 23% 65%, #b8a8ff, transparent),
+        radial-gradient(2px 2px at 42% 24%, #fff, transparent),
+        radial-gradient(1px 1px at 63% 76%, #fff, transparent),
+        radial-gradient(1px 1px at 82% 32%, #cbb7ff, transparent),
+        radial-gradient(2px 2px at 91% 86%, #fff, transparent),
+        radial-gradient(1px 1px at 34% 90%, #fff, transparent),
+        radial-gradient(1px 1px at 72% 9%, #b8a8ff, transparent);
+
+    background-size: 350px 350px;
+    opacity: 0.50;
+
+    animation: starsGlow 8s ease-in-out infinite alternate;
+}
+
+@keyframes starsGlow {
+    from {
+        opacity: 0.25;
+    }
+
+    to {
+        opacity: 0.65;
+    }
+}
+
+/* CONTEÚDO */
+
+header,
+main,
+footer {
+    position: relative;
+    z-index: 1;
+}
+
+/* CABEÇALHO */
+
+header {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 100px 30px 70px;
+
+    border-bottom: 1px solid var(--border);
+}
+
+/* TÍTULO ASTRA — STAR WARS */
+
+
+header h1 {
+    font-family: 'Star Jedi', 'Arial Black', sans-serif;
+    font-size: clamp(52px, 10vw, 115px);
+    font-weight: normal;
+    letter-spacing: 4px;
+    line-height: 1.3;
+
+    color: #FFF5D6;
+
+    text-shadow:
+        0 0 15px rgba(255, 242, 179, 0.12),
+        0 0 35px rgba(255, 242, 179, 0.06);
+}
+
+
+header p {
+    margin-top: 22px;
+
+    color: var(--muted);
+    font-size: 14px;
+    letter-spacing: 1.5px;
+}
+
+/* CONTEÚDO PRINCIPAL */
+
+main {
+    width: 90%;
+    max-width: 1200px;
+    margin: 65px auto;
+}
+
+/* PAINEL PRINCIPAL */
+
+#dashboard {
+    position: relative;
+    padding: 65px 60px;
+
+    background: rgba(10, 7, 17, 0.70);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+
+    box-shadow:
+        0 20px 70px rgba(0, 0, 0, 0.35);
+}
+
+/* IDENTIFICAÇÃO DO SISTEMA */
+
+#dashboard::before {
+    content: "ASTRA / DEEP SPACE OBSERVATION";
+
+    display: block;
+    margin-bottom: 35px;
+
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 3px;
+    color: var(--accent);
+}
+
+/* TÍTULO DO PAINEL */
+
+#dashboard h2 {
+    max-width: 700px;
+
+    font-size: clamp(30px, 5vw, 50px);
+    font-weight: 500;
+    line-height: 1.25;
+    letter-spacing: 1px;
+
+    color: #f3effa;
+}
+
+/* DESCRIÇÃO */
+
+#dashboard p {
+    max-width: 550px;
+    margin-top: 25px;
+
+    color: var(--muted);
+    font-size: 15px;
+    line-height: 1.9;
+}
+
+/* BOTÃO EXPLORAR ASTEROIDES */
+
+#buscar-asteroides {
+    margin-top: 40px;
+    padding: 18px 34px;
+
+    background: rgba(192, 169, 236, 0.04);
+    color: var(--text);
+
+    border: 1px solid var(--accent);
+    border-radius: 2px;
+
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+
+    cursor: pointer;
+    transition: all 0.35s ease;
+}
+
+#buscar-asteroides:hover {
+    background: var(--accent);
+    color: #08040f;
+
+    box-shadow:
+        0 0 35px rgba(192, 169, 236, 0.20);
+
+    transform: translateY(-2px);
+}
+
+#buscar-asteroides:focus-visible {
+    outline: 2px solid white;
+    outline-offset: 4px;
+}
+
+/* RESULTADOS DOS ASTEROIDES */
+
+#resultados {
+    margin-top: 50px;
+}
+
+/* RODAPÉ */
+
+footer {
+    max-width: 1200px;
+    margin: 100px auto 0;
+    padding: 35px 30px;
+
+    border-top: 1px solid var(--border);
+
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 1px;
+
+    color: #888197;
+}
+
+/* RESPONSIVIDADE */
+
+@media (max-width: 768px) {
+    header {
+        padding: 70px 20px 50px;
+    }
+
+    header h1 {
+        font-size: clamp(42px, 11vw, 70px);
+        letter-spacing: 2px;
+    }
+
+    header p {
+        font-size: 12px;
+    }
+
+    main {
+        margin-top: 35px;
+    }
+
+    #dashboard {
+        padding: 40px 25px;
+    }
+
+    #dashboard::before {
+        font-size: 9px;
+        letter-spacing: 1.5px;
+    }
+
+    #dashboard h2 {
+        font-size: 30px;
+    }
+
+    footer {
+        margin-top: 60px;
+    }
+}
+
+@media (max-width: 480px) {
+    header h1 {
+        font-size: clamp(36px, 10vw, 48px);
+        letter-spacing: 1px;
+    }
+
+    #dashboard {
+        padding: 32px 20px;
+    }
+
+    #buscar-asteroides {
+        width: 100%;
+        padding: 18px 12px;
+    }
+}
+
+/* ACESSIBILIDADE */
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    body::before {
+        animation: none;
+    }
+
+    #buscar-asteroides {
+        transition: none;
+    }
+}
+
+/* =====================================
+   ASTRA — GALÁXIA DISTANTE
+===================================== */
+
+/* Fundo preto com um toque roxo */
+body {
+    background-color: #010103;
+
+    background-image:
+        radial-gradient(
+            ellipse at 80% 65%,
+            rgba(57, 24, 81, 0.17),
+            transparent 55%
+        ),
+        linear-gradient(
+            145deg,
+            #010103 0%,
+            #050309 60%,
+            #080412 100%
+        );
+}
+
+/* Galáxia real, distante e discreta */
+body::after {
+    content: "";
+    position: fixed;
+
+    top: 4%;
+    right: -5%;
+
+    width: min(70vw, 850px);
+    height: min(85vh, 750px);
+
+    z-index: 0;
+    pointer-events: none;
+
+    background-image:
+        url("https://cdn.esahubble.org/archives/images/screen/potw2114a.jpg");
+
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    opacity: 0.17;
+
+    /* Dissolve as bordas na escuridão */
+    -webkit-mask-image:
+        radial-gradient(
+            ellipse at center,
+            black 15%,
+            transparent 72%
+        );
+
+    mask-image:
+        radial-gradient(
+            ellipse at center,
+            black 15%,
+            transparent 72%
+        );
+}
+
+/* Painel escuro para preservar a leitura */
+#dashboard {
+    background: rgba(7, 5, 13, 0.82);
+    border: 1px solid rgba(183, 160, 220, 0.18);
+}
+
+/* Nosso título em baunilha */
+header h1 {
+    font-family: 'Star Jedi', 'Arial Black', sans-serif;
+    font-size: clamp(52px, 10vw, 115px);
+    font-weight: normal;
+    letter-spacing: 4px;
+    line-height: 1.3;
+
+    color: #FFF5D6;
+
+    text-shadow:
+        0 0 15px rgba(255, 245, 214, 0.10);
+}
+
+/* Galáxia menor nos celulares */
+@media (max-width: 768px) {
+    body::after {
+        top: 8%;
+        right: -35%;
+        width: 110vw;
+        height: 65vh;
+        opacity: 0.12;
+    }
+
+    header h1 {
+        font-size: clamp(42px, 11vw, 70px);
+        letter-spacing: 2px;
+    }
+}
+
+/* =====================================
+   ASTRA — CARDS DOS ASTEROIDES
+===================================== */
+
+.resultados-titulo {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 25px;
+    font-weight: 500;
+    color: #fff5d6;
+    margin-bottom: 30px;
+}
+
+/* Organização dos cartões */
+.asteroides-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 20px;
+}
+
+/* Cartão individual */
+.asteroide-card {
+    min-width: 0;
+    padding: 28px;
+
+    background: rgba(10, 7, 19, 0.90);
+    border: 1px solid rgba(192, 169, 236, 0.20);
+    border-radius: 6px;
+
+    transition: 0.3s ease;
+}
+
+.asteroide-card:hover {
+    transform: translateY(-5px);
+
+    border-color: rgba(192, 169, 236, 0.55);
+
+    box-shadow:
+        0 10px 35px rgba(83, 44, 130, 0.15);
+}
+
+/* Nome do asteroide */
+.asteroide-card h3 {
+    font-size: 18px;
+    font-weight: 600;
+    color: #fff5d6;
+    margin-bottom: 15px;
+    overflow-wrap: anywhere;
+}
+
+/* Classificações */
+.asteroide-alerta,
+.asteroide-normal {
+    display: inline-block;
+    max-width: 100%;
+    padding: 7px 10px;
+    margin-bottom: 25px;
+
+    border-radius: 3px;
+
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    line-height: 1.6;
+    overflow-wrap: anywhere;
+}
+
+.asteroide-alerta {
+    color: #ffb9ad;
+    background: rgba(255, 100, 90, 0.10);
+    border: 1px solid rgba(255, 100, 90, 0.25);
+}
+
+.asteroide-normal {
+    color: #bcdcc9;
+    background: rgba(100, 200, 140, 0.08);
+    border: 1px solid rgba(100, 200, 140, 0.18);
+}
+
+/* Dados científicos */
+.asteroide-info {
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+
+    padding: 13px 0;
+    border-bottom: 1px solid rgba(183, 160, 220, 0.10);
+
+    font-size: 12px;
+}
+
+.asteroide-info span {
+    color: #aaa3b8;
+}
+
+.asteroide-info strong {
+    color: #eee8fa;
+    font-weight: 500;
+    text-align: right;
+}
+
+/* Mensagens */
+.mensagem-status {
+    color: #c0a9ec;
+    font-size: 14px;
+}
+
+.mensagem-erro {
+    color: #ffb9ad;
+    font-size: 14px;
+}
+
+/* Botão durante o carregamento */
+#buscar-asteroides:disabled {
+    opacity: 0.5;
+    cursor: wait;
+}
+
+/* Tablets */
+@media (max-width: 1000px) {
+    .asteroides-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+/* Celulares */
+@media (max-width: 650px) {
+    .asteroides-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .asteroide-card {
+        padding: 22px;
+    }
+
+    .resultados-titulo {
+        font-size: 21px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .asteroide-card {
+        transition: none;
+    }
+
+    .asteroide-card:hover {
+        transform: none;
+    }
+}
+
+/* =====================================
+   ASTRA — DASHBOARD DE ESTATÍSTICAS
+===================================== */
+
+.periodo-consulta {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 2px;
+    color: #c0a9ec;
+    margin-bottom: 28px;
+}
+
+/* Título das estatísticas */
+.stats-heading {
+    font-size: 25px;
+    font-weight: 500;
+    color: #fff5d6;
+    margin-bottom: 25px;
+}
+
+/* Organização das estatísticas */
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 16px;
+}
+
+/* Cartões das estatísticas */
+.stat-card {
+    min-width: 0;
+    min-height: 165px;
+    padding: 25px 20px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 14px;
+
+    background: rgba(13, 9, 23, 0.92);
+    border: 1px solid rgba(192, 169, 236, 0.20);
+    border-radius: 6px;
+}
+
+/* Símbolos */
+.stat-icon {
+    font-size: 25px;
+    color: #c0a9ec;
+}
+
+/* Números */
+.stat-value {
+    display: block;
+    font-size: clamp(18px, 2vw, 27px);
+    font-weight: 600;
+    color: #fff5d6;
+    overflow-wrap: anywhere;
+}
+
+/* Descrições */
+.stat-label {
+    font-size: 12px;
+    line-height: 1.5;
+    color: #aaa3b8;
+}
+
+/* Filtros */
+.filtros-section {
+    margin-top: 60px;
+    margin-bottom: 30px;
+}
+
+.filtros-botoes {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.filtro {
+    padding: 12px 18px;
+
+    background: transparent;
+    border: 1px solid rgba(192, 169, 236, 0.35);
+    border-radius: 3px;
+
+    color: #aaa3b8;
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+
+    cursor: pointer;
+    transition: 0.25s ease;
+}
+
+.filtro:hover {
+    border-color: #c0a9ec;
+    color: #fff5d6;
+}
+
+.filtro.ativo {
+    background: #c0a9ec;
+    border-color: #c0a9ec;
+    color: #090511;
+}
+
+.filtro:focus-visible {
+    outline: 2px solid #fff5d6;
+    outline-offset: 3px;
+}
+
+/* Tablets */
+@media (max-width: 950px) {
+    .stats-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+/* Celulares */
+@media (max-width: 480px) {
+    .stats-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .stat-card {
+        min-height: 125px;
+    }
+
+    .periodo-consulta {
+        line-height: 1.8;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .filtro {
+        transition: none;
+    }
+}
+
+/* =====================================
+   ASTRA — SPACE GALLERY
+===================================== */
+
+#galeria {
+    margin-top: 110px;
+    padding-top: 55px;
+    border-top: 1px solid var(--border);
+}
+
+.galeria-cabecalho {
+    margin-bottom: 35px;
+}
+
+.galeria-etiqueta {
+    color: #c0a9ec;
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 3px;
+}
+
+.galeria-cabecalho h2 {
+    margin-top: 18px;
+    font-size: clamp(30px, 5vw, 48px);
+    font-weight: 500;
+    color: #fff5d6;
+}
+
+.galeria-cabecalho p {
+    margin-top: 15px;
+    color: #aaa3b8;
+    font-size: 14px;
+    line-height: 1.8;
+}
+
+/* Filtros da galeria */
+.galeria-filtros {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 30px;
+}
+
+.galeria-filtro {
+    padding: 12px 20px;
+    background: transparent;
+    color: #c7bdd5;
+
+    border: 1px solid rgba(192, 169, 236, 0.3);
+    border-radius: 3px;
+
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+
+    cursor: pointer;
+    transition: 0.25s;
+}
+
+.galeria-filtro:hover,
+.galeria-filtro.ativo {
+    background: #c0a9ec;
+    color: #090511;
+    border-color: #c0a9ec;
+}
+
+.galeria-filtro:focus-visible {
+    outline: 2px solid #fff5d6;
+    outline-offset: 3px;
+}
+
+/* Organização das fotos */
+.galeria-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 20px;
+}
+
+/* Cartão de fotografia */
+.galeria-card {
+    min-width: 0;
+    overflow: hidden;
+
+    background: rgba(12, 8, 22, 0.92);
+    border: 1px solid rgba(192, 169, 236, 0.2);
+    border-radius: 5px;
+
+    transition: 0.3s ease;
+}
+
+.galeria-card:hover {
+    transform: translateY(-4px);
+    border-color: rgba(192, 169, 236, 0.55);
+}
+
+/* Imagem astronômica */
+.galeria-card img {
+    display: block;
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    background: #050309;
+}
+
+/* Informações */
+.galeria-card-conteudo {
+    padding: 20px;
+}
+
+.galeria-card h3 {
+    font-size: 15px;
+    font-weight: 500;
+    color: #fff5d6;
+    line-height: 1.5;
+    overflow-wrap: anywhere;
+}
+
+.galeria-credito {
+    margin-top: 10px;
+    color: #aaa3b8;
+    font-size: 11px;
+    line-height: 1.5;
+}
+
+.galeria-card a {
+    display: inline-block;
+    margin-top: 20px;
+
+    color: #c0a9ec;
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+
+    text-decoration: none;
+}
+
+.galeria-card a:hover {
+    text-decoration: underline;
+}
+
+.galeria-mensagem {
+    padding: 35px 0;
+    color: #aaa3b8;
+    font-size: 14px;
+}
+
+/* Responsividade */
+@media (max-width: 900px) {
+    .galeria-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 600px) {
+    #galeria {
+        margin-top: 70px;
+    }
+
+    .galeria-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .galeria-card img {
+        height: 240px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .galeria-card,
+    .galeria-filtro {
+        transition: none;
+    }
+
+    .galeria-card:hover {
+        transform: none;
+    }
+}

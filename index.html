@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>ASTRA | Asteroid Tracker</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header>
+        <h1>☄️ ASTRA</h1>
+        <p>
+            Explore asteroides próximos da Terra
+            com dados da NASA.
+        </p>
+    </header>
+
+    <main>
+
+        <!-- MONITORAMENTO DE ASTEROIDES -->
+        <section id="dashboard">
+            <h2>Asteroides próximos da Terra</h2>
+
+            <p>
+                Descubra quais asteroides estão
+                passando pela nossa vizinhança espacial.
+            </p>
+
+            <button id="buscar-asteroides">
+                Explorar asteroides
+            </button>
+        </section>
+
+        <!-- RESULTADOS DA NASA -->
+        <section id="resultados" aria-live="polite">
+        </section>
+
+        <!-- GALERIA ESPACIAL -->
+        <section id="galeria">
+
+            <div class="galeria-cabecalho">
+                <span class="galeria-etiqueta">
+                    ASTRA / VISUAL ARCHIVE
+                </span>
+
+                <h2>Explore o universo</h2>
+
+                <p>
+                    Uma coleção de fotografias do cosmos,
+                    diretamente da biblioteca da NASA.
+                </p>
+            </div>
+
+            <div class="galeria-filtros">
+                <button class="galeria-filtro ativo" data-tema="galaxy" aria-pressed="true">
+                    Galáxias
+                </button>
+
+                <button class="galeria-filtro" data-tema="nebula" aria-pressed="false">
+                    Nebulosas
+                </button>
+
+                <button class="galeria-filtro" data-tema="asteroid" aria-pressed="false">
+                    Asteroides
+                </button>
+            </div>
+
+            <div id="galeria-resultados" aria-live="polite">
+            </div>
+
+        </section>
+
+    </main>
+
+    <footer>
+        <p>
+            ASTRA © 2026 | Dados fornecidos pela NASA
+        </p>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="galeria.js"></script>
+
+</body>
+
+</html>
