@@ -29,6 +29,9 @@
             <a href="#graficos" id="link-graficos">
                 Gráficos
             </a>
+            <a href="#busca-asteroides" id="link-busca">
+                Buscar
+            </a>
         </div>
 
         <!-- SELETOR DE IDIOMA -->
@@ -81,6 +84,46 @@
             <!-- RESULTADOS DA NASA -->
             <section id="resultados" aria-live="polite">
             </section>
+
+        </section>
+
+        <!-- BUSCA DE ASTEROIDES -->
+        <section id="busca-asteroides">
+
+            <div class="busca-cabecalho">
+                <span class="busca-etiqueta">
+                    ASTRA / OBJECT DATABASE
+                </span>
+
+                <h2 id="busca-titulo">
+                    Explorador de asteroides
+                </h2>
+
+                <p id="busca-descricao">
+                    Pesquise pelo nome, número ou
+                    designação de um asteroide.
+                </p>
+            </div>
+
+            <form id="form-busca" class="busca-formulario">
+
+                <label for="campo-asteroide" id="busca-label">
+                    Nome ou identificador
+                </label>
+
+                <div class="busca-linha">
+                    <input id="campo-asteroide" type="search" placeholder="Ex.: Apophis, Eros, Bennu" maxlength="80"
+                        required>
+
+                    <button id="botao-busca" type="submit">
+                        Buscar
+                    </button>
+                </div>
+
+            </form>
+
+            <div id="busca-resultados" aria-live="polite">
+            </div>
 
         </section>
 
@@ -240,6 +283,7 @@
     <script src="traducao-galeria.js"></script>
     <script src="curiosidades.js"></script>
     <script src="graficos.js"></script>
+    <script src="busca.js"></script>
 
 
 </body>
