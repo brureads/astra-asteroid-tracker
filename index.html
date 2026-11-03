@@ -26,6 +26,9 @@
             <a href="#curiosidades" id="link-curiosidades">
                 Curiosidades
             </a>
+            <a href="#graficos" id="link-graficos">
+                Gráficos
+            </a>
         </div>
 
         <!-- SELETOR DE IDIOMA -->
@@ -78,6 +81,65 @@
             <!-- RESULTADOS DA NASA -->
             <section id="resultados" aria-live="polite">
             </section>
+
+        </section>
+
+        <!-- GRÁFICOS ESPACIAIS -->
+        <section id="graficos">
+
+            <div class="graficos-cabecalho">
+                <span id="graficos-etiqueta" class="graficos-etiqueta">
+                    ASTRA / ANÁLISE DE DADOS
+                </span>
+
+                <h2 id="graficos-titulo">
+                    Análise de asteroides
+                </h2>
+
+                <p id="graficos-descricao">
+                    Compare velocidade, tamanho e distância
+                    dos objetos monitorados pela NASA.
+                </p>
+            </div>
+
+            <!-- BOTÕES DOS GRÁFICOS -->
+            <div class="graficos-controles" role="group" aria-label="Tipo de gráfico">
+
+                <button type="button" class="grafico-botao ativo" data-grafico="velocidade" aria-pressed="true">
+                    Velocidade
+                </button>
+
+                <button type="button" class="grafico-botao" data-grafico="tamanho" aria-pressed="false">
+                    Tamanho
+                </button>
+
+                <button type="button" class="grafico-botao" data-grafico="distancia" aria-pressed="false">
+                    Distância
+                </button>
+
+            </div>
+
+            <div class="grafico-painel">
+
+                <h3 id="grafico-nome">
+                    Comparação de velocidade
+                </h3>
+
+                <p id="grafico-mensagem" role="status">
+                    Clique em Explorar asteroides para carregar
+                    os dados da NASA.
+                </p>
+
+                <div id="grafico-container" class="grafico-container" hidden>
+                    <canvas id="grafico-asteroides" role="img" aria-label="Comparação de asteroides">
+                    </canvas>
+                </div>
+
+                <p id="grafico-nota" class="grafico-nota">
+                    Fonte: NASA NeoWs API
+                </p>
+
+            </div>
 
         </section>
 
@@ -169,11 +231,15 @@
 
     <!-- JAVASCRIPT -->
 
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.5.1/dist/chart.umd.min.js"></script>
+
     <script src="script.js"></script>
     <script src="galeria.js"></script>
     <script src="idioma.js"></script>
     <script src="traducao-galeria.js"></script>
     <script src="curiosidades.js"></script>
+    <script src="graficos.js"></script>
 
 
 </body>

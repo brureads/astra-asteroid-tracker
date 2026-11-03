@@ -358,6 +358,16 @@ async function buscarAsteroides() {
             (a, b) => distancia(a) - distancia(b)
         );
 
+// Envia os dados para a seção de gráficos
+document.dispatchEvent(
+    new CustomEvent("astra:asteroides-carregados", {
+        detail: {
+            asteroides: asteroidesEncontrados
+        }
+    })
+);
+
+
         resultados.replaceChildren();
 
         // Identificação do intervalo consultado
