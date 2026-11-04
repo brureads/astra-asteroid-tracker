@@ -10,7 +10,7 @@ Com uma interface inspirada na estética cinematográfica da ficção científic
 
 ---
 
-## 🚀 Funcionalidades
+##  Funcionalidades
 
 ###  Monitoramento de asteroides
 - Consulta de asteroides próximos da Terra utilizando a API NASA NeoWs.
@@ -171,7 +171,7 @@ https://brureads.github.io/astra-asteroid-tracker/
 
 ---
 
-## 🔭 Possíveis melhorias futuras
+##  Possíveis melhorias futuras
 
 - [ ] Pesquisa ampliada por nome utilizando o catálogo completo do JPL.
 - [ ] Visualização interativa de órbitas.
